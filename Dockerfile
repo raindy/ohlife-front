@@ -2,7 +2,7 @@
 FROM nginx:latest
 FROM node
 
-ADD ./build /var/www
+ADD . /var/www/
 
 RUN npm install
 
