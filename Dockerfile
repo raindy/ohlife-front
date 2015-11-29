@@ -12,4 +12,4 @@ ADD ./build /var/www
 # COPY ./node_modules /var/www/node_modules
 
 # Start up nginx server
-CMD ["nginx","-c","/etc/nginx/nginx.conf"]
+CMD ["nginx","-c", "/etc/nginx/nginx.conf"]
