@@ -2,11 +2,13 @@
 FROM nginx:latest
 FROM node
 
+ADD ./build /var/www
+
 RUN npm install
 
 WORKDIR /var/www
 
-ADD ./build /var/www
+
 
 RUN npm install
 
