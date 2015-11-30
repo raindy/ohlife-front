@@ -6,7 +6,6 @@ RUN npm install
 RUN npm run package
 
 ADD ./build /var/www/
-WORKDIR /var/www
 
 RUN echo $PATH
 ENV PATH /usr/local/nginx/bin:$PATH
