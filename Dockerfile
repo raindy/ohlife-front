@@ -2,8 +2,9 @@
 FROM nginx:latest
 FROM node
 
-
+RUN [ "echo", "$PATH" ]
 ENV PATH /usr/local/nginx/bin:$PATH
+RUN [ "echo", "$PATH" ]
 
 ADD . /var/www/
 
