@@ -2,6 +2,9 @@
 FROM nginx:latest
 FROM node
 
+
+ENV PATH /usr/local/nginx/bin:$PATH
+
 ADD . /var/www/
 
 RUN npm install
