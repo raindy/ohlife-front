@@ -2,23 +2,14 @@
 FROM nginx:latest
 FROM node
 
-RUN [ "echo", "$PATH" ]
-ENV PATH /usr/local/nginx/bin:$PATH
-RUN [ "echo", "$PATH" ]
-
 ADD . /var/www/
-
-RUN npm install
-
 WORKDIR /var/www
-
-
-
 RUN npm install
-
 RUN npm run package
 
-
+RUN echo $PATH
+ENV PATH /usr/local/nginx/bin:$PATH
+RUN echo $PATH
 
 # Expost port 80
 EXPOSE 80
