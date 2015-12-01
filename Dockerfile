@@ -23,4 +23,4 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # COPY ./node_modules /var/www/node_modules
 
 # Start up nginx server
-CMD ["/usr/local/nginx/sbin/nginx"]
+CMD ["/usr/sbin/nginx"]
