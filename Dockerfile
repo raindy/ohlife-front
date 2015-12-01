@@ -29,3 +29,5 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 # Start up nginx server
 # CMD ["/bin/sh", "-c","nginx"]
+
+CMD ["nginx"]
