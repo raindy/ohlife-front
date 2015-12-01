@@ -10,7 +10,7 @@ RUN npm run package
 
 
 
-ENV PATH /usr/local/nginx/sbin:$PATH
+ENV PATH /usr/local/nginx/sbin:/usr/sbin/:/usr/sbin/nginx:/usr/sbin/nginx/bin:/usr/sbin/nginx/sbin:$PATH
 
 # Expost port 80
 EXPOSE 80
@@ -23,4 +23,4 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # COPY ./node_modules /var/www/node_modules
 
 # Start up nginx server
-CMD ["/usr/sbin/nginx"]
+CMD ["nginx"]
