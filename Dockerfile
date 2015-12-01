@@ -2,7 +2,7 @@
 FROM nginx:latest
 # FROM node
 
-RUN apt-get -y install node
+RUN apt-get -y install nodejs
 
 ADD . /var/www
 WORKDIR /var/www
