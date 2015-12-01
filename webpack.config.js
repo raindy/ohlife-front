@@ -29,7 +29,7 @@ var config = {
     // and create a vendors.js file. As you can see the first argument matches the key
     // of the entry, "vendors"
     plugins: [
-        //new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
+        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
         new webpack.HotModuleReplacementPlugin()
 
     ],
