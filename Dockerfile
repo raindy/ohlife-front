@@ -1,6 +1,8 @@
 # Pull nginx base image
 FROM nginx:latest
-FROM node
+# FROM node
+
+RUN apt-get -y install node
 
 ADD . /var/www
 WORKDIR /var/www
