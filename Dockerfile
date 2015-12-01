@@ -11,11 +11,8 @@ ADD . /var/www
 WORKDIR /var/www
 
 RUN npm install
+RUN npm install webpack -g
 RUN npm run package
-
-
-
-ENV PATH /usr/local/nginx/sbin:/usr/sbin/:/usr/sbin/nginx:/usr/sbin/nginx/bin:/usr/sbin/nginx/sbin:$PATH
 
 # Expost port 80
 EXPOSE 80
