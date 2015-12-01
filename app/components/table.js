@@ -46,6 +46,9 @@ const Loading = React.createClass({
     }
 });
 
+var base_url = "http://zhangyouce-ohlife-api.daoapp.io";
+//var base_url = "http://localhost:8088";
+
 module.exports = React.createClass({
     componentDidMount: function() {
         this.onChangePage(1);
@@ -59,7 +62,7 @@ module.exports = React.createClass({
         };
     },
     onChangePage: function (page) {
-        var href = 'http://localhost:8088/api/boards?page=' + (page -1) + "&size=" + this.state.perPage;
+        var href = base_url + '/api/boards?page=' + (page -1) + "&size=" + this.state.perPage;
         return client({method: 'GET', path: href}).then(noteCollection => {
             console.log(noteCollection);
             this.setState({
