@@ -46,8 +46,9 @@ const Loading = React.createClass({
     }
 });
 
-var base_url = "http://zhangyouce-ohlife-api.daoapp.io";
+//var base_url = "http://zhangyouce-ohlife-api.daoapp.io";
 //var base_url = "http://localhost:8088";
+var base_url = "";
 
 module.exports = React.createClass({
     componentDidMount: function() {
