@@ -67,7 +67,7 @@ module.exports = React.createClass({
         return client({method: 'GET', path: href}).then(noteCollection => {
             console.log(noteCollection);
             this.setState({
-            	items: noteCollection.entity._embedded.boards
+            	items: noteCollection.entity._embedded.acq_bbs_board
             });
             //this.setState({totalPages: noteCollection.entity.page.totalPages})
             //console.log(noteCollection);
