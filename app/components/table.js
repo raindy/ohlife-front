@@ -51,23 +51,27 @@ const Loading = React.createClass({
 var base_url = "";
 
 module.exports = React.createClass({
+    propTypes: {
+        item: React.PropTypes.array
+    },
     componentDidMount: function() {
-        this.onChangePage(1);
+        //this.onChangePage(1);
     },
     getInitialState: function() {
         return {
-            items: [],
+            rows: [],
             totalPages: 1,
             perPage: 10,
             loading: true
         };
     },
     onChangePage: function (page) {
-        var href = base_url + '/api/boards?page=' + (page -1) + "&size=" + this.state.perPage;
+        var href = base_url + '/api/articles?page=' + (page -1) + "&size=" + this.state.perPage;
         return client({method: 'GET', path: href}).then(noteCollection => {
             console.log(noteCollection);
             this.setState({
-            	items: noteCollection.entity._embedded.acq_bbs_board
+            	//items: noteCollection.entity._embedded.acq_bbs_board
+                items: noteCollection.entity.articles
             });
             //this.setState({totalPages: noteCollection.entity.page.totalPages})
             //console.log(noteCollection);
@@ -78,22 +82,25 @@ module.exports = React.createClass({
         console.log(item);
         return (
             <TableRow>
-                <TableRowColumn>{item.name}</TableRowColumn>
-                <TableRowColumn>{item.websiteInfo.name}</TableRowColumn>
-                <TableRowColumn>{item.url}</TableRowColumn>
+                <TableRowColumn>{item.title}</TableRowColumn>
+                <TableRowColumn>{item.content}</TableRowColumn>
+                <TableRowColumn>{item.author}</TableRowColumn>
             </TableRow>
         );
     },
     render : function () {
         var s = this.state;
+        //this.props.items.forEach(function(zone) {
+        //    this.state.rows.push(<CustomRow Population={zone.population} Zone={zone.name} />);
+        //}.bind(this));
         return (
             <div>
-                <h1>Paginator example</h1>
+                <h1>Welcome to ohlife</h1>
                 <Table>
                 <TableHeader enableSelectAll={this.state.enableSelectAll}>
                     <TableRow>
-                        <TableHeaderColumn colSpan="3" tooltip='Super Header' style={{textAlign: 'center'}}>
-                            Super Header
+                        <TableHeaderColumn colSpan="3" tooltip='list of your life' style={{textAlign: 'center'}}>
+                            list of your life
                         </TableHeaderColumn>
                     </TableRow>
                     <TableRow>
@@ -103,7 +110,7 @@ module.exports = React.createClass({
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {s.items.map(this.renderItem)}
+                    {this.props.items.map(this.renderItem)}
                 </TableBody>
                     </Table>
             </div>
