@@ -77,11 +77,11 @@ define(function(require, exports, module) {
                 "author": ""
             };
 
-            dataApi.article.post(data1234, function () {
+            dataApi.article.post(data1234, function (article) {
                 self.setState({
                     showDialogScrollable: false
                 });
-                self.getData()
+                self.addToList(article);
 
             })
 
@@ -100,6 +100,16 @@ define(function(require, exports, module) {
             this.page ++;
             this.getData()
 
+        },
+
+        addToList: function (data) {
+            var newComments = [data].concat(this.state.items);
+            console.log(data);
+            this.setState(
+                {
+                    items : newComments
+                }
+            );
         },
 
         getData: function () {
@@ -138,7 +148,7 @@ define(function(require, exports, module) {
 
                 <div>
                     <Dialog
-                        title="Dialog With Scrollable Content"
+                        title="write whatever"
                         actions={customActions}
                         autoDetectWindowHeight={true}
                         autoScrollBodyContent={true}
@@ -152,7 +162,7 @@ define(function(require, exports, module) {
                                 multiLine={true}/>
                         </div>
                     </Dialog>
-                    <RaisedButton label="open" primary={true} onTouchTap={this.openDialog} />
+                    <RaisedButton label="to record your memory" primary={true} onTouchTap={this.openDialog} />
                     <Table items={this.state.items}></Table>
                     <RaisedButton label="load more" primary={true} fullWidth={true} onTouchTap={this.loadMore} />
                 </div>

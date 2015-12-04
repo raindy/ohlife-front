@@ -3,6 +3,7 @@
  */
 
 var React = require('react');
+var moment = require('moment');
 const client = require('../client');
 
 //Import statements:
@@ -82,9 +83,8 @@ module.exports = React.createClass({
         console.log(item);
         return (
             <TableRow>
-                <TableRowColumn>{item.title}</TableRowColumn>
                 <TableRowColumn>{item.content}</TableRowColumn>
-                <TableRowColumn>{item.author}</TableRowColumn>
+                <TableRowColumn>{moment(item.intime).format('YYYY-DD-MM HH:mm:ss')}</TableRowColumn>
             </TableRow>
         );
     },
@@ -104,9 +104,8 @@ module.exports = React.createClass({
                         </TableHeaderColumn>
                     </TableRow>
                     <TableRow>
-                        <TableHeaderColumn tooltip='The ID'>ID</TableHeaderColumn>
-                        <TableHeaderColumn tooltip='The Name'>Name</TableHeaderColumn>
-                        <TableHeaderColumn tooltip='The Status'>Status</TableHeaderColumn>
+                        <TableHeaderColumn tooltip='The Content'>Content</TableHeaderColumn>
+                        <TableHeaderColumn tooltip='intime'>Intime</TableHeaderColumn>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
