@@ -99,7 +99,7 @@ module.exports = React.createClass({
                 <Table>
                 <TableHeader enableSelectAll={this.state.enableSelectAll}>
                     <TableRow>
-                        <TableHeaderColumn colSpan="3" tooltip='list of your life' style={{textAlign: 'center'}}>
+                        <TableHeaderColumn colSpan="2" tooltip='list of your life' style={{textAlign: 'center'}}>
                             list of your life
                         </TableHeaderColumn>
                     </TableRow>
